@@ -1,0 +1,18 @@
+
+h1{
+	text-align: center;
+	line-height: 100px;
+	margin: 0;
+	padding: 0;
+}
+h5{
+	cursor: pointer;
+}
+.lg_sm_modal h5{
+ 	display: inline-block;
+ 	margin-right: 30px;
+}
+img{
+	margin: 0 auto;
+	display: block;
+}
