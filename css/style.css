@@ -16,3 +16,7 @@ img{
 	margin: 0 auto;
 	display: block;
 }
+.container{
+	border: 1px solid #333;
+	margin: 20px auto;
+}
