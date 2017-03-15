@@ -7,6 +7,10 @@ h1{
 }
 h5{
 	cursor: pointer;
+	text-align: center;
+	line-height: 50px;
+	color: #ff6700;
+	font-size: 20px;
 }
 .lg_sm_modal h5{
  	display: inline-block;

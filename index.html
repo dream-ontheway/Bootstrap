@@ -8,6 +8,7 @@
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link rel="stylesheet" type="text/css" href="css/docs.css">
 	<script type="text/javascript" src="./js/jquery.js"></script>
+
 </head>
 <body>
 	<h1 class="title">bootstrap中javascript插件</h1>
@@ -15,14 +16,35 @@
 	<div class="container" style="border: 1px solid #999;margin-top: 20px;" >
 		<h1>1.模态框</h1>
 		<h2 align="center">模态框 删除 fade 类即可删除模态框动画效果</h2>
-		<div class="modal_dialog">
-			<h3 class="Modal Dialog">模态框</h3>
-			<h5 onclick="modal.modal_dialog()">点击展开模态框</h5>
-		</div>
-		<div class="Launchdemomodal">
-			<h3 class="Modal Dialog">动态模态框</h3>
-			<h5 data-toggle="modal" data-target="#myModal">点击 模态框将从上到下、逐渐浮现到页面前</h5>
-		</div>
+		<h3 class="Modal Dialog">模态框</h3>
+		<h5 onclick="modal.modal_dialog()">点击展开模态框</h5>
+		<h1>模态框  打开关闭触发的事件</h1>
+		<textarea style="width:100%;height:300px;">
+			var modal = {
+				modal_dialog : function() {
+					$("#modal_dialong").modal('show')
+					//打开模态框时触发（模态框不可见）
+					$("#modal_dialong").on('show.bs.modal',function(){
+						console.log('打开模态框时触发（模态框不可见）')
+					})
+					//打开时(模态框可见时)触发事件
+					$("#modal_dialong").on('shown.bs.modal',function(){
+						alert("你打开了模态框")
+					})	
+					//关闭时触发（模态框可见）
+					$("#modal_dialong").on('hide.bs.modal',function(){
+						alert("你关闭了模态框")
+					})	
+					//hidden.bs.modal
+					$("#modal_dialong").on('hidden.bs.modal',function(){
+						alert("你关闭了模态框(模态框不可见)")
+					})	
+				}
+			}
+		</textarea>
+
+		<h3>动态模态框 tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"</h3>
+		<h5 data-toggle="modal" data-target="#myModal">点击 模态框将从上到下、逐渐浮现到页面前</h5>
 		<div class="lg_sm_modal">
 			<h3 class="Modal Dialog">大小模态框 通过类modal-lg和modal-sm来控制</h3>
 			<h5 data-toggle="modal" data-target=".bs-example-modal-lg">lg模态框</h5>
@@ -380,7 +402,7 @@
 
 
 	<div class="modal fade" id="modal_dialong">
-		<div class="modal-dialog">
+		<div class="modal-dialog" style="width:900px ;margin: 30px auto 0;">
 			<div class="modal-content">
 				<div class="modal-header">
 					<button type="botton" class="close" data-dismiss="modal">
@@ -389,8 +411,29 @@
 					</button>
 					<h4 class="modal-title">Modal title</h4>
 				</div>
-				<div class="modal-body">
-       				<p>One fine body&hellip;</p>
+				<div class="modal-body" >
+       				<textarea style="width:100%;height:410px;">
+       						<div class="modal fade" id="modal_dialong">
+       							<div class="modal-dialog">
+       								<div class="modal-content">
+       									<div class="modal-header">
+       										<button type="botton" class="close" data-dismiss="modal">
+       											<span aria-hiden="true">&times;</span>
+       											<span class="sr-only">Close</span>
+       										</button>
+       										<h4 class="modal-title">Modal title</h4>
+       									</div>
+       									<div class="modal-body">
+       					       				内容
+       					      			</div>
+       					      			<div class="modal-footer">
+       					      			     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+       					      			     <button type="button" class="btn btn-primary">Save changes</button>
+       					      			</div>
+       								</div>
+       							</div>	
+       						</div>
+       				</textarea>
       			</div>
       			<div class="modal-footer">
       			     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -400,14 +443,35 @@
 		</div>	
 	</div>
 	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-	  	<div class="modal-dialog">
+	  	<div class="modal-dialog" style="width:900px;">
 	    	<div class="modal-content">
 		      	<div class="modal-header">
 		        	<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
 		        	<h4 class="modal-title" id="myModalLabel">Modal title</h4>
 		      	</div>
 		      	<div class="modal-body" style="height:500px;">
+<textarea style="width:100%;height:400px;">
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	  	<div class="modal-dialog">
+	    	<div class="modal-content">
+		      	<div class="modal-header">
+		        	<button type="button" class="close" data-dismiss="modal">
+		        		<span aria-hidden="true">&times;</span>
+		        		<span class="sr-only">Close</span>
+		        	</button>
+		        	<h4 class="modal-title" id="myModalLabel">Modal title</h4>
+		      	</div>
+		      	<div class="modal-body" style="height:500px;">
 		        	
+		      	</div>
+		      	<div class="modal-footer">
+		        	<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		        	<button type="button" class="btn btn-primary">Save changes</button>
+		     	 </div>
+	    	</div>
+	  	</div>
+	</div>
+</textarea>
 		      	</div>
 		      	<div class="modal-footer">
 		        	<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
